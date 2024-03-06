@@ -241,6 +241,20 @@ def left_view(root: Node) -> None:
             counter+=1
 
 
+def leaf_nodes(root: Node) -> None:
+    q=Queue(maxsize=MAX_QUEUE_SIZE)
+    q.put(root)
+    while(not q.empty()):
+        item=q.get()
+        if item.left==None and item.right==None:
+            print(item.key)
+        else:
+            if item.left!=None:
+                q.put(item.left)
+            if item.right!=None:
+                q.put(item.right)
+
+
 def invert_tree(root: Node) -> None:
     """
     inverts the tree (mirror image)
@@ -267,18 +281,20 @@ if __name__ == '__main__':
     insert(root=root, key=4)
     insert(root=root, key=5)
 
+    leaf_nodes(root=root)
+
     # left_view(root=root)
 
     # search_node(root=root, target=9)
 
     # delete(root=root, target=4)
 
-    BFS_traversal(root=root)
+    # BFS_traversal(root=root)
 
-    invert_tree(root=root)
+    # invert_tree(root=root)
 
-    print('-----')
-    BFS_traversal(root=root)
+    # print('-----')
+    # BFS_traversal(root=root)
     # print(min_key(root=root))
 
     # q1=Queue(maxsize=10)
