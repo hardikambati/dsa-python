@@ -10,7 +10,7 @@ class Node:
     """
     creates a node with key, left, right values
     """
-    def __init__(self, key: int):
+    def __init__(self, key: int=None):
         self.key=key
         self.left=None
         self.right=None
@@ -242,6 +242,9 @@ def left_view(root: Node) -> None:
 
 
 def leaf_nodes(root: Node) -> None:
+    """
+    prints the leaf nodes of a tree
+    """
     q=Queue(maxsize=MAX_QUEUE_SIZE)
     q.put(root)
     while(not q.empty()):
@@ -281,7 +284,7 @@ if __name__ == '__main__':
     insert(root=root, key=4)
     insert(root=root, key=5)
 
-    leaf_nodes(root=root)
+    # leaf_nodes(root=root)
 
     # left_view(root=root)
 
@@ -289,7 +292,7 @@ if __name__ == '__main__':
 
     # delete(root=root, target=4)
 
-    # BFS_traversal(root=root)
+    BFS_traversal(root=root)
 
     # invert_tree(root=root)
 
