@@ -15,4 +15,4 @@ python3 <file_name>.py
 We encourage you to fork this repository, enhance the code, and submit a pull request.
 
  
-[Maintainer : Hardik Ambati](mailto:hardikambati69@gmail.com)
+Maintainer : [Hardik Ambati](mailto:hardikambati69@gmail.com)
