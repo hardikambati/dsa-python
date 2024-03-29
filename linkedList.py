@@ -156,18 +156,71 @@ class LinkedList:
                 curr=curr.next
 
 
+    def mid_node(self, start: Node, last: Node=None) -> Node:
+        """
+        returns the middle node in range [start, last] nodes
+        """
+        if start == None:
+            return None
+        
+        slow=start
+        fast=start.next
+
+        while(fast != last):
+            fast=fast.next
+            
+            if (fast != last):
+                slow=slow.next
+                fast=fast.next
+        return slow
+
+
+    def binarySearch(self, target) -> None:
+        """
+        does a binary search for finding a target
+        """
+        if (self.head.data == target):
+            print(f'found {target}')
+            return
+
+        start=self.head
+        last=None
+
+        while(True):
+            # find mid
+            mid=self.mid_node(start=start, last=last)
+
+            if (target == mid.data):
+                print(f'found : {target}')
+                break
+
+            if (target > mid.data):
+                start=mid.next
+            elif (target < mid.data):
+                last=mid
+
+            if (start == last):
+                print(f'not found : {target}')
+                break
+
+
 if __name__ == '__main__':
 
     l = LinkedList()
 
-    l.insert_end(4)
-    l.insert_end(2)
     l.insert_end(1)
+    l.insert_end(2)
     l.insert_end(3)
+    l.insert_end(4)
+    l.insert_end(5)
+
+    l.print_list()
+    l.binarySearch(12)
+
+    # print(l.mid_node(l.head).data)
 
     # l.remove_last_node()
     # l.insert_at_index(9, 5)
     # l.remove_at_index(4)
-    l.bubble_sort()
-    l.print_list()
+    # l.bubble_sort()
     # l.size_of()
