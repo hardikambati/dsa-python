@@ -178,6 +178,8 @@ class LinkedList:
     def binarySearch(self, target) -> None:
         """
         does a binary search for finding a target
+        NOTE : for performing binary search, the nodes have to be in a 
+               sorted order
         """
         if (self.head.data == target):
             print(f'found {target}')
